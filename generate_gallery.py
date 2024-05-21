@@ -165,7 +165,7 @@ for xml in tqdm(MODEL_XMLS):
     maker = xml.parent.stem
     robot = xml.stem
     filename = f"assets/{maker}-{robot}.png"
-    Image.fromarray(img).save(filename)
+    Image.fromarray(img).convert("RGBA").save(filename)
     paths.append(filename)
   except:
     print(f"failed to load {xml.as_posix()}")
