@@ -238,4 +238,9 @@
     <framelinvel objtype="site" objname="imu_frame" name="global_linvel"/>
     <frameangvel objtype="site" objname="imu_frame" name="global_angvel"/>
   </sensor>
+
+  <keyframe>
+    <key name="standing" qpos="0 0 0.21 1 0 0 0 0 0.5 1.0 0 0.5 1.0 0 0.5 1.0 0 0.5 1.0"
+      ctrl="0 0.5 1.0 0 0.5 1.0 0 0.5 1.0 0 0.5 1.0"/>
+  </keyframe>
 </mujoco>

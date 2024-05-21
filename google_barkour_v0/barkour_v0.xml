@@ -58,7 +58,7 @@
   </asset>
 
   <worldbody>
-    <site name="origin"/>
+    <site name="origin" rgba="0 0 0 0"/>
     <body name="chassis">
       <freejoint/>
       <camera name="track" pos="0.846 -1.465 0.916" xyaxes="0.866 0.500 0.000 -0.171 0.296 0.940" mode="trackcom"/>
