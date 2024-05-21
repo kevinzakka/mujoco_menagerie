@@ -160,7 +160,7 @@ for xml in tqdm(MODEL_XMLS):
       physics.reset()
     physics.forward()
 
-    img = physics.render(height=400, width=400)
+    img = physics.render(height=720, width=1280)
     title = f"{xml.parent.stem}/{xml.name}"
     img = cv2.putText(img.copy(), NAME_MAP[title], (5, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
 
