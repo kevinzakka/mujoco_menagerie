@@ -1,5 +1,5 @@
 <mujoco model="barkour_vb">
-  <compiler angle="radian" autolimits="true"/>
+  <compiler angle="radian" autolimits="true" meshdir="assets"/>
 
   <default>
     <default class="bkvb">
@@ -49,17 +49,17 @@
   </default>
 
   <asset>
-    <mesh name="camera_cover" file="assets/camera_cover.stl"/>
-    <mesh name="neck" file="assets/neck.stl"/>
-    <mesh name="intel_realsense_depth_camera_d435" file="assets/intel_realsense_depth_camera_d435.stl"/>
-    <mesh name="handle" file="assets/handle.stl"/>
-    <mesh name="torso" file="assets/torso.stl"/>
-    <mesh name="abduction" file="assets/abduction.stl"/>
-    <mesh name="upper_leg" file="assets/upper_leg.stl"/>
-    <mesh name="upper_leg_left" file="assets/upper_leg_left.stl"/>
-    <mesh name="upper_leg_right" file="assets/upper_leg_right.stl"/>
-    <mesh name="lower_leg" file="assets/lower_leg.stl"/>
-    <mesh name="foot" file="assets/foot.stl"/>
+    <mesh file="camera_cover.stl"/>
+    <mesh file="neck.stl"/>
+    <mesh file="intel_realsense_depth_camera_d435.stl"/>
+    <mesh file="handle.stl"/>
+    <mesh file="torso.stl"/>
+    <mesh file="abduction.stl"/>
+    <mesh file="upper_leg.stl"/>
+    <mesh file="upper_leg_left.stl"/>
+    <mesh file="upper_leg_right.stl"/>
+    <mesh file="lower_leg.stl"/>
+    <mesh file="foot.stl"/>
   </asset>
 
   <worldbody>

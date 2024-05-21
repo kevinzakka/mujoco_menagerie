@@ -31,20 +31,20 @@
     <material name="white" rgba="1 1 1 1"/>
     <material name="silver" rgba=".753 .753 .753 1"/>
 
-    <mesh file="visual/link_base.stl"/>
-    <mesh file="visual/link1.stl"/>
-    <mesh file="visual/link2.stl"/>
-    <mesh file="visual/link3.stl"/>
-    <mesh file="visual/link4.stl"/>
-    <mesh file="visual/link5.stl"/>
-    <mesh file="visual/link6.stl"/>
-    <mesh name="link_base_c" file="collision/link_base.stl"/>
-    <mesh name="link1_c" file="collision/link1.stl"/>
-    <mesh name="link2_c" file="collision/link2.stl"/>
-    <mesh name="link3_c" file="collision/link3.stl"/>
-    <mesh name="link4_c" file="collision/link4.stl"/>
-    <mesh name="link5_c" file="collision/link5.stl"/>
-    <mesh name="link6_c" file="collision/link6.stl"/>
+    <mesh file="link_base.stl"/>
+    <mesh file="link1.stl"/>
+    <mesh file="link2.stl"/>
+    <mesh file="link3.stl"/>
+    <mesh file="link4.stl"/>
+    <mesh file="link5.stl"/>
+    <mesh file="link6.stl"/>
+    <mesh file="link_base_c.stl"/>
+    <mesh file="link1_c.stl"/>
+    <mesh file="link2_c.stl"/>
+    <mesh file="link3_c.stl"/>
+    <mesh file="link4_c.stl"/>
+    <mesh file="link5_c.stl"/>
+    <mesh file="link6_c.stl"/>
   </asset>
 
   <worldbody>

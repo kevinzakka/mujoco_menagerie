@@ -25,33 +25,33 @@
     <mesh file="ra3.stl"/>
     <mesh file="h1.stl"/>
     <mesh file="h2.stl"/>
-    <mesh name="bodyc" file="simplified_convex/body.stl"/>
-    <mesh name="body1c" file="simplified_convex/body_sub1.stl"/>
-    <mesh name="body2c" file="simplified_convex/body_sub2.stl"/>
-    <mesh name="body3c" file="simplified_convex/body_sub3.stl"/>
-    <mesh name="body4c" file="simplified_convex/body_sub4.stl"/>
-    <mesh name="ll1c" file="simplified_convex/ll1.stl"/>
-    <mesh name="ll2c" file="simplified_convex/ll2.stl"/>
-    <mesh name="ll3c" file="simplified_convex/ll3.stl"/>
-    <mesh name="ll4c" file="simplified_convex/ll4.stl"/>
-    <mesh name="ll5c" file="simplified_convex/ll5.stl"/>
-    <mesh name="ll6c" file="simplified_convex/ll6.stl"/>
-    <mesh name="rl1c" file="simplified_convex/rl1.stl"/>
-    <mesh name="rl2c" file="simplified_convex/rl2.stl"/>
-    <mesh name="rl3c" file="simplified_convex/rl3.stl"/>
-    <mesh name="rl4c" file="simplified_convex/rl4.stl"/>
-    <mesh name="rl5c" file="simplified_convex/rl5.stl"/>
-    <mesh name="rl6c" file="simplified_convex/rl6.stl"/>
-    <mesh name="la1c" file="simplified_convex/la1.stl"/>
-    <mesh name="la2c" file="simplified_convex/la2.stl"/>
-    <mesh name="la3c" file="simplified_convex/la3.stl"/>
-    <mesh name="ra1c" file="simplified_convex/ra1.stl"/>
-    <mesh name="ra2c" file="simplified_convex/ra2.stl"/>
-    <mesh name="ra3c" file="simplified_convex/ra3.stl"/>
-    <mesh name="h1c" file="simplified_convex/h1.stl"/>
-    <mesh name="h2c" file="simplified_convex/h2.stl"/>
-    <mesh name="h21c" file="simplified_convex/h2_sub1.stl"/>
-    <mesh name="h22c" file="simplified_convex/h2_sub2.stl"/>
+    <mesh name="bodyc" file="body_simplified.stl"/>
+    <mesh name="body1c" file="body_sub1_simplified.stl"/>
+    <mesh name="body2c" file="body_sub2_simplified.stl"/>
+    <mesh name="body3c" file="body_sub3_simplified.stl"/>
+    <mesh name="body4c" file="body_sub4_simplified.stl"/>
+    <mesh name="ll1c" file="ll1_simplified.stl"/>
+    <mesh name="ll2c" file="ll2_simplified.stl"/>
+    <mesh name="ll3c" file="ll3_simplified.stl"/>
+    <mesh name="ll4c" file="ll4_simplified.stl"/>
+    <mesh name="ll5c" file="ll5_simplified.stl"/>
+    <mesh name="ll6c" file="ll6_simplified.stl"/>
+    <mesh name="rl1c" file="rl1_simplified.stl"/>
+    <mesh name="rl2c" file="rl2_simplified.stl"/>
+    <mesh name="rl3c" file="rl3_simplified.stl"/>
+    <mesh name="rl4c" file="rl4_simplified.stl"/>
+    <mesh name="rl5c" file="rl5_simplified.stl"/>
+    <mesh name="rl6c" file="rl6_simplified.stl"/>
+    <mesh name="la1c" file="la1_simplified.stl"/>
+    <mesh name="la2c" file="la2_simplified.stl"/>
+    <mesh name="la3c" file="la3_simplified.stl"/>
+    <mesh name="ra1c" file="ra1_simplified.stl"/>
+    <mesh name="ra2c" file="ra2_simplified.stl"/>
+    <mesh name="ra3c" file="ra3_simplified.stl"/>
+    <mesh name="h1c" file="h1_simplified.stl"/>
+    <mesh name="h2c" file="h2_simplified.stl"/>
+    <mesh name="h21c" file="h2_sub1_simplified.stl"/>
+    <mesh name="h22c" file="h2_sub2_simplified.stl"/>
   </asset>
 
   <default>
