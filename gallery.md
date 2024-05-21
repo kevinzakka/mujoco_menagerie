@@ -1,7 +1,3 @@
-
-
-
-
 |<img src='assets/franka_emika_panda-panda.png' width=100>|<img src='assets/kuka_iiwa_14-iiwa14.png' width=100>|<img src='assets/rethink_robotics_sawyer-sawyer.png' width=100>|<img src='assets/trossen_vx300s-vx300s.png' width=100>|<img src='assets/ufactory_lite6-lite6.png' width=100>|
 | :---: | :---: | :---: | :---: | :---: |
 |<img src='assets/ufactory_xarm7-xarm7.png' width=100>|<img src='assets/unitree_z1-z1.png' width=100>|<img src='assets/ufactory_xarm7-xarm7.png' width=100>|<img src='assets/unitree_z1-z1.png' width=100>|<img src='assets/universal_robots_ur10e-ur10e.png' width=100>|
