@@ -123,6 +123,9 @@ def sort_func(xml):
   return (MODEL_MAP[name], name)
 MODEL_XMLS = sorted(MODEL_XMLS, key=sort_func)
 
+for xml in MODEL_XMLS:
+  print(xml)
+
 paths = []
 for xml in tqdm(MODEL_XMLS):
   try:
@@ -159,7 +162,7 @@ for xml in tqdm(MODEL_XMLS):
 
     img = physics.render(height=400, width=400)
     title = f"{xml.parent.stem}/{xml.name}"
-    img = cv2.putText(img.copy(), NAME_MAP[title], (10, 370), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
+    img = cv2.putText(img.copy(), NAME_MAP[title], (5, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
 
     maker = xml.parent.stem
     robot = xml.stem
@@ -174,10 +177,10 @@ N_MODELS = len(paths)
 N_COLS = 5
 N_ROWS = int(math.ceil(N_MODELS / N_COLS))
 table = []
-for c in range(N_COLS):
+for r in range(N_ROWS):
   row = []
-  for r in range(N_ROWS):
-    i = c * N_COLS + r
+  for c in range(N_COLS):
+    i = r * N_COLS + c
     if i >= N_MODELS:
       row.append("")
     else:
