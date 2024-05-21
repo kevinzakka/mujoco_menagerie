@@ -152,6 +152,8 @@ for xml in tqdm(MODEL_XMLS):
 
     try:
       physics.reset(keyframe_id=0)
+      if "skydio" in xml.as_posix():
+        physics.data.qpos[2] = 0.1
     except:
       physics.reset()
     physics.forward()
