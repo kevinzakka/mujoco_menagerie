@@ -115,16 +115,12 @@ MODEL_XMLS = list(_get_xmls('*.xml'))
 filter_words = ["scene", "keyframe", "mjx", "actuator", "nohand"]
 for word in filter_words:
   MODEL_XMLS = [f for f in MODEL_XMLS if word not in f.stem]
-print(f"Found {len(MODEL_XMLS)} xmls...")
 
 # Sort XML files.
 def sort_func(xml):
   name = f"{xml.parent.stem}/{xml.name}"
   return (MODEL_MAP[name], name)
 MODEL_XMLS = sorted(MODEL_XMLS, key=sort_func)
-
-for xml in MODEL_XMLS:
-  print(xml)
 
 paths = []
 for xml in tqdm(MODEL_XMLS):
@@ -160,7 +156,7 @@ for xml in tqdm(MODEL_XMLS):
       physics.reset()
     physics.forward()
 
-    img = physics.render(height=720, width=1280)
+    img = physics.render(height=500, width=500)
     title = f"{xml.parent.stem}/{xml.name}"
     img = cv2.putText(img.copy(), NAME_MAP[title], (5, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
 
