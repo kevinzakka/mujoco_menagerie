@@ -159,7 +159,7 @@ for xml in tqdm(MODEL_XMLS):
 
     img = physics.render(height=400, width=400)
     title = f"{xml.parent.stem}/{xml.name}"
-    img = cv2.putText(img.copy(), NAME_MAP[title], (10, 450), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
+    img = cv2.putText(img.copy(), NAME_MAP[title], (10, 370), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
 
     maker = xml.parent.stem
     robot = xml.stem
@@ -171,7 +171,6 @@ for xml in tqdm(MODEL_XMLS):
 
 # Create markdown table.
 N_MODELS = len(paths)
-# N_COLS = int(math.ceil(math.sqrt(N_MODELS)))
 N_COLS = 5
 N_ROWS = int(math.ceil(N_MODELS / N_COLS))
 table = []
@@ -182,7 +181,7 @@ for c in range(N_COLS):
     if i >= N_MODELS:
       row.append("")
     else:
-      row.append(f"<img src='{paths[i]}' width='100'>")
+      row.append(f"<img src='{paths[i]}' width=100>")
   table.extend(row)
 mdFile = MdUtils(file_name='gallery')
 mdFile.new_table(columns=N_COLS, rows=N_ROWS, text=table, text_align="center")
