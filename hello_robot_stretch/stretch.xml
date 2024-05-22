@@ -168,6 +168,9 @@
   </asset>
 
   <worldbody>
+    <light mode="targetbodycom" target="base_link" pos="1 0 2"/>
+    <light mode="targetbodycom" target="base_link" pos="0 1 2"/>
+    <!-- <light mode="targetbodycom" target="base_link" pos="0 -1 2"/> -->
     <body name="base_link" childclass="stretch">
       <freejoint/>
       <geom mesh="base_link_0" material="Caster_Rollers_Red" class="visual"/>
@@ -418,4 +421,8 @@
     <position name="head_pan" joint="joint_head_pan" class="head_pan"/>
     <position name="head_tilt" joint="joint_head_tilt" class="head_tilt"/>
   </actuator>
+
+  <keyframe>
+    <key qpos='0 0 0 1 0 0 0 0 0 0.1325 0.07995 0.07995 0.07605 0.0702 1.585 0 0.198 0 0 0.126 0 0 0 0'/>
+  </keyframe>
 </mujoco>

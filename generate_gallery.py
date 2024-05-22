@@ -96,6 +96,8 @@ MODEL_MAP = {
     "unitree_go2/go2": ModelType.QUADRUPED,
 }
 
+DEFAULT_FOV = 40
+
 CAMERA_MAP = {
     "skydio_x2/x2": dict(
         pos="-0.580 -0.260 0.622",
@@ -112,138 +114,144 @@ CAMERA_MAP = {
         pos="0.002 0.043 0.432", xyaxes="0.052 -0.999 0.000 0.998 0.052 0.017"
     ),
     "ufactory_xarm7/xarm7": dict(
-        pos="0.852 -0.383 0.860", xyaxes="0.487 0.874 0.000 -0.354 0.197 0.914", fovy=50
+        pos="0.852 -0.383 0.860", xyaxes="0.487 0.874 0.000 -0.354 0.197 0.914", fovy=DEFAULT_FOV
     ),
     "ufactory_xarm7/hand": dict(
         pos="-0.282 0.013 0.118",
         xyaxes="-0.047 -0.999 0.000 0.160 -0.007 0.987",
-        fovy=50,
+        fovy=45,
     ),
     "shadow_hand/left_hand": dict(
-        pos="0.304 0.076 0.570",
-        xyaxes="-0.599 0.801 0.000 -0.785 -0.587 0.195",
-        fovy=50,
+        pos="0.172 0.005 0.615",
+        xyaxes="-0.508 -0.861 -0.000 0.861 -0.508 0.017",
+        fovy=45,
     ),
     "shadow_hand/right_hand": dict(
-        pos="0.304 0.076 0.570",
-        xyaxes="-0.599 0.801 0.000 -0.785 -0.587 0.195",
-        fovy=50,
+        pos="0.180 0.021 0.601",
+        xyaxes="-0.579 -0.816 -0.000 0.816 -0.578 0.017",
+        fovy=45,
     ),
     "franka_emika_panda/panda": dict(
         pos="0.412 1.106 0.849",
         xyaxes="-0.994 0.108 0.000 -0.040 -0.369 0.928",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "franka_emika_panda/hand": dict(
         pos="0.340 0.008 0.059",
         xyaxes="-0.023 1.000 0.000 -0.084 -0.002 0.996",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "kuka_iiwa_14/iiwa14": dict(
         pos="0.212 1.138 0.977",
         xyaxes="-1.000 0.027 0.000 -0.012 -0.441 0.898",
-        fovy=50,
-    ),
-    "robotis_op3/op3": dict(
-        pos="0.673 -0.024 0.447", xyaxes="0.035 0.999 0.000 -0.252 0.009 0.968", fovy=50
+        fovy=45,
     ),
     "ufactory_lite6/lite6": dict(
         pos="0.077 -0.778 0.528",
         xyaxes="1.000 -0.004 -0.000 0.001 0.274 0.962",
-        fovy=50,
+        fovy=45,
     ),
     "unitree_g1/g1": dict(
-        pos="1.083 -0.998 1.323",
-        xyaxes="0.686 0.728 -0.000 -0.296 0.279 0.914",
-        fovy=50,
+        pos="1.466 -0.082 1.271",
+        xyaxes="0.072 0.997 -0.000 -0.377 0.027 0.926",
+        fovy=45,
+    ),
+    "unitree_h1/h1": dict(
+        pos="2.098 0.006 1.893",
+        xyaxes="0.007 1.000 -0.000 -0.394 0.003 0.919",
+        fovy=45,
+    ),
+    "robotis_op3/op3": dict(
+        pos="0.673 -0.024 0.447", xyaxes="0.035 0.999 0.000 -0.252 0.009 0.968", fovy=45
     ),
     "universal_robots_ur5e/ur5e": dict(
         pos="0.603 1.012 0.595",
         xyaxes="-0.932 0.363 -0.000 -0.080 -0.206 0.975",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "universal_robots_ur10e/ur10e": dict(
         pos="1.286 -0.798 0.889",
         xyaxes="0.696 0.718 -0.000 -0.224 0.218 0.950",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "unitree_z1/z1": dict(
-        pos="0.305 -0.400 0.552", xyaxes="0.755 0.656 0.000 -0.359 0.413 0.837", fovy=50
-    ),
-    "unitree_h1/h1": dict(
-        pos="1.944 -0.828 1.894", xyaxes="0.415 0.910 0.000 -0.369 0.168 0.914", fovy=50
+        pos="0.305 -0.400 0.552", xyaxes="0.755 0.656 0.000 -0.359 0.413 0.837", fovy=DEFAULT_FOV
     ),
     "unitree_go2/go2": dict(
-        pos="0.753 -0.427 0.433", xyaxes="0.518 0.856 0.000 -0.284 0.172 0.943", fovy=50
+        pos="0.753 -0.427 0.433", xyaxes="0.518 0.856 0.000 -0.284 0.172 0.943", fovy=DEFAULT_FOV
     ),
     "unitree_go1/go1": dict(
         pos="0.679 -0.553 0.530",
         xyaxes="0.638 0.770 -0.000 -0.328 0.272 0.905",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "unitree_a1/a1": dict(
         pos="0.654 -0.564 0.536",
         xyaxes="0.676 0.737 -0.000 -0.327 0.299 0.896",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "trossen_vx300s/vx300s": dict(
         pos="0.583 0.317 0.549",
         xyaxes="-0.531 0.847 0.000 -0.434 -0.272 0.859",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "robotiq_2f85/2f85": dict(
         pos="-0.009 -0.251 0.107",
         xyaxes="0.999 -0.033 -0.000 0.005 0.150 0.989",
-        fovy=50,
+        fovy=45,
     ),
     "rethink_robotics_sawyer/sawyer": dict(
         pos="1.014 -0.494 0.876",
         xyaxes="0.555 0.832 -0.000 -0.372 0.248 0.895",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "realsense_d435i/d435i": dict(
         pos="-0.000 -0.002 0.128",
         xyaxes="1.000 -0.000 0.000 0.000 1.000 0.017",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "hello_robot_stretch/stretch": dict(
-        pos="1.394 -0.761 1.411",
-        xyaxes="0.491 0.871 -0.000 -0.318 0.179 0.931",
-        fovy=50,
+        pos="1.464 -0.514 1.439",
+        xyaxes="0.271 0.963 -0.000 -0.362 0.102 0.927",
+        fovy=45,
     ),
     "google_robot/robot": dict(
-        pos="2.049 -0.945 1.503", xyaxes="0.409 0.913 0.000 -0.222 0.099 0.970", fovy=50
+        pos="1.753 -0.231 1.305",
+        xyaxes="0.025 1.000 0.000 -0.306 0.008 0.952",
+        fovy=50,
     ),
     "google_barkour_vb/barkour_vb": dict(
         pos="0.887 0.338 0.565",
         xyaxes="-0.388 0.922 0.000 -0.460 -0.194 0.867",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "google_barkour_v0/barkour_v0": dict(
         pos="0.733 0.320 0.558",
         xyaxes="-0.416 0.909 -0.000 -0.441 -0.202 0.875",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "bitcraze_crazyflie_2/cf2": dict(
-        pos="0.037 -0.142 0.206", xyaxes="0.963 0.268 0.000 -0.167 0.599 0.783", fovy=50
+        pos="0.037 -0.142 0.206", xyaxes="0.963 0.268 0.000 -0.167 0.599 0.783", fovy=DEFAULT_FOV
     ),
     "anybotics_anymal_b/anymal_b": dict(
-        pos="0.930 -1.239 1.221", xyaxes="0.809 0.587 0.000 -0.308 0.424 0.852", fovy=50
+        pos="0.930 -1.239 1.221", xyaxes="0.809 0.587 0.000 -0.308 0.424 0.852", fovy=DEFAULT_FOV
     ),
     "anybotics_anymal_c/anymal_c": dict(
-        pos="1.423 -0.825 0.895", xyaxes="0.542 0.841 0.000 -0.286 0.184 0.940", fovy=50
+        pos="1.547 -0.577 0.941",
+        xyaxes="0.378 0.926 -0.000 -0.358 0.146 0.922",
+        fovy=45,
     ),
     "aloha/aloha": dict(
         pos="0.484 1.158 0.836",
         xyaxes="-0.939 0.345 -0.000 -0.162 -0.441 0.883",
-        fovy=50,
+        fovy=DEFAULT_FOV,
     ),
     "agility_cassie/cassie": dict(
-        pos="1.277 -1.122 1.053", xyaxes="0.655 0.756 0.000 -0.196 0.170 0.966", fovy=50
+        pos="1.277 -1.122 1.053", xyaxes="0.655 0.756 0.000 -0.196 0.170 0.966", fovy=DEFAULT_FOV
     ),
 }
 
-KEEP_LIGHT = ["go1", "a1", "op3", "aloha", "left_hand", "right_hand"]
+KEEP_LIGHT = ["go1", "a1", "op3", "aloha", "left_hand", "right_hand", "stretch"]
 
 
 def create_arena():
