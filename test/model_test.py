@@ -33,11 +33,12 @@ _MJX_MODEL_XMLS: List[pathlib.Path] = []
 
 
 def _get_xmls(pattern: str) -> List[pathlib.Path]:
-  for d in _MODEL_DIRS:
-    yield from d.glob(pattern)
+    for d in _MODEL_DIRS:
+        yield from d.glob(pattern)
 
-_MODEL_XMLS = list(_get_xmls('scene*.xml'))
-_MJX_MODEL_XMLS = list(_get_xmls('scene*mjx.xml'))
+
+_MODEL_XMLS = list(_get_xmls("scene*.xml"))
+_MJX_MODEL_XMLS = list(_get_xmls("scene*mjx.xml"))
 
 # Total simulation duration, in seconds.
 _MAX_SIM_TIME = 1.0
@@ -51,73 +52,76 @@ def _pseudorandom_ctrlnoise(
     i: int,
     noise: float,
 ) -> None:
-  for j in range(model.nu):
-    ctrlrange = model.actuator_ctrlrange[j]
-    if model.actuator_ctrllimited[j]:
-      center = 0.5 * (ctrlrange[1] + ctrlrange[0])
-      radius = 0.5 * (ctrlrange[1] - ctrlrange[0])
-    else:
-      center = 0.0
-      radius = 1.0
-    data.ctrl[j] = center + radius * noise * (2*mujoco.mju_Halton(i, j+2) - 1)
+    for j in range(model.nu):
+        ctrlrange = model.actuator_ctrlrange[j]
+        if model.actuator_ctrllimited[j]:
+            center = 0.5 * (ctrlrange[1] + ctrlrange[0])
+            radius = 0.5 * (ctrlrange[1] - ctrlrange[0])
+        else:
+            center = 0.0
+            radius = 1.0
+        data.ctrl[j] = center + radius * noise * (2 * mujoco.mju_Halton(i, j + 2) - 1)
 
 
 class ModelsTest(parameterized.TestCase):
-  """Tests that MuJoCo models load and do not emit warnings."""
+    """Tests that MuJoCo models load and do not emit warnings."""
 
-  @parameterized.parameters(_MODEL_XMLS)
-  def test_compiles_and_steps(self, xml_path: pathlib.Path) -> None:
-    model = mujoco.MjModel.from_xml_path(str(xml_path))
-    data = mujoco.MjData(model)
-    i = 0
-    while data.time < _MAX_SIM_TIME:
-      _pseudorandom_ctrlnoise(model, data, i, _NOISE_SCALE)
-      mujoco.mj_step(model, data)
-      i += 1
-    # Check no warnings were triggered during the simulation.
-    if not all(data.warning.number == 0):
-      warning_info = '\n'.join([
-          f'{mujoco.mjtWarning(enum_value).name}: count={count}'
-          for enum_value, count in enumerate(data.warning.number) if count
-      ])
-      self.fail(f'MuJoCo warning(s) encountered:\n{warning_info}')
+    @parameterized.parameters(_MODEL_XMLS)
+    def test_compiles_and_steps(self, xml_path: pathlib.Path) -> None:
+        model = mujoco.MjModel.from_xml_path(str(xml_path))
+        data = mujoco.MjData(model)
+        i = 0
+        while data.time < _MAX_SIM_TIME:
+            _pseudorandom_ctrlnoise(model, data, i, _NOISE_SCALE)
+            mujoco.mj_step(model, data)
+            i += 1
+        # Check no warnings were triggered during the simulation.
+        if not all(data.warning.number == 0):
+            warning_info = "\n".join(
+                [
+                    f"{mujoco.mjtWarning(enum_value).name}: count={count}"
+                    for enum_value, count in enumerate(data.warning.number)
+                    if count
+                ]
+            )
+            self.fail(f"MuJoCo warning(s) encountered:\n{warning_info}")
 
 
 class MjxModelsTest(parameterized.TestCase):
-  """Tests that MJX models load and do not return NaNs."""
+    """Tests that MJX models load and do not return NaNs."""
 
-  @parameterized.parameters(_MJX_MODEL_XMLS)
-  def test_compiles_and_steps(self, xml_path: pathlib.Path) -> None:
-    model = mujoco.MjModel.from_xml_path(str(xml_path))
-    model = mjx.put_model(model)
-    data = mjx.make_data(model)
-    ctrlrange = jp.where(
-        model.actuator_ctrllimited[:, None],
-        model.actuator_ctrlrange,
-        jp.array([-10.0, 10.0]),
-    )
+    @parameterized.parameters(_MJX_MODEL_XMLS)
+    def test_compiles_and_steps(self, xml_path: pathlib.Path) -> None:
+        model = mujoco.MjModel.from_xml_path(str(xml_path))
+        model = mjx.put_model(model)
+        data = mjx.make_data(model)
+        ctrlrange = jp.where(
+            model.actuator_ctrllimited[:, None],
+            model.actuator_ctrlrange,
+            jp.array([-10.0, 10.0]),
+        )
 
-    def step(x, _):
-      data, rng = x
-      rng, key = jax.random.split(rng)
-      ctrl = jax.random.uniform(
-          key,
-          shape=(model.nu,),
-          minval=ctrlrange[:, 0],
-          maxval=ctrlrange[:, 1],
-      )
-      data = mjx.step(model, data.replace(ctrl=ctrl))
-      return (data, rng), ()
+        def step(x, _):
+            data, rng = x
+            rng, key = jax.random.split(rng)
+            ctrl = jax.random.uniform(
+                key,
+                shape=(model.nu,),
+                minval=ctrlrange[:, 0],
+                maxval=ctrlrange[:, 1],
+            )
+            data = mjx.step(model, data.replace(ctrl=ctrl))
+            return (data, rng), ()
 
-    (data, _), _ = jax.lax.scan(
-        step,
-        (data, jax.random.PRNGKey(0)),
-        (),
-        length=min(_MAX_SIM_TIME // model.opt.timestep, 100),
-    )
+        (data, _), _ = jax.lax.scan(
+            step,
+            (data, jax.random.PRNGKey(0)),
+            (),
+            length=min(_MAX_SIM_TIME // model.opt.timestep, 100),
+        )
 
-    self.assertFalse(jp.isnan(data.qpos).any())
+        self.assertFalse(jp.isnan(data.qpos).any())
 
 
-if __name__ == '__main__':
-  absltest.main()
+if __name__ == "__main__":
+    absltest.main()

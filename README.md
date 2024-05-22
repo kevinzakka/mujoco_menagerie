@@ -24,6 +24,15 @@ powerful simulator like MuJoCo with many modeling options, it is easy to create
 provide the community with a curated library of well-designed models that work
 well right out of the gate.
 
+|<img src='gallery/kuka_iiwa_14-iiwa14.png' width=100>|<img src='gallery/ufactory_lite6-lite6.png' width=100>|<img src='gallery/franka_emika_panda-panda.png' width=100>|<img src='gallery/rethink_robotics_sawyer-sawyer.png' width=100>|<img src='gallery/universal_robots_ur10e-ur10e.png' width=100>|
+| :---: | :---: | :---: | :---: | :---: |
+|<img src='gallery/universal_robots_ur5e-ur5e.png' width=100>|<img src='gallery/trossen_vx300s-vx300s.png' width=100>|<img src='gallery/ufactory_xarm7-xarm7.png' width=100>|<img src='gallery/unitree_z1-z1.png' width=100>|<img src='gallery/aloha-aloha.png' width=100>|
+|<img src='gallery/robotiq_2f85-2f85.png' width=100>|<img src='gallery/franka_emika_panda-hand.png' width=100>|<img src='gallery/ufactory_xarm7-hand.png' width=100>|<img src='gallery/wonik_allegro-left_hand.png' width=100>|<img src='gallery/shadow_hand-left_hand.png' width=100>|
+|<img src='gallery/wonik_allegro-right_hand.png' width=100>|<img src='gallery/shadow_hand-right_hand.png' width=100>|<img src='gallery/google_robot-robot.png' width=100>|<img src='gallery/hello_robot_stretch-stretch.png' width=100>|<img src='gallery/unitree_a1-a1.png' width=100>|
+|<img src='gallery/anybotics_anymal_b-anymal_b.png' width=100>|<img src='gallery/anybotics_anymal_c-anymal_c.png' width=100>|<img src='gallery/google_barkour_v0-barkour_v0.png' width=100>|<img src='gallery/google_barkour_vb-barkour_vb.png' width=100>|<img src='gallery/unitree_go1-go1.png' width=100>|
+|<img src='gallery/unitree_go2-go2.png' width=100>|<img src='gallery/agility_cassie-cassie.png' width=100>|<img src='gallery/unitree_g1-g1.png' width=100>|<img src='gallery/unitree_h1-h1.png' width=100>|<img src='gallery/robotis_op3-op3.png' width=100>|
+|<img src='gallery/bitcraze_crazyflie_2-cf2.png' width=100>|<img src='gallery/skydio_x2-x2.png' width=100>|<img src='gallery/flybody-fruitfly.png' width=100>|<img src='gallery/realsense_d435i-d435i.png' width=100>||
+
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Overview](#overview)
@@ -32,17 +41,6 @@ well right out of the gate.
     - [Via `git clone`](#via-git-clone)
 - [Model Quality and Contributing](#model-quality-and-contributing)
 - [Menagerie Models](#menagerie-models)
-  - [Arms](#arms)
-  - [Bipeds](#bipeds)
-  - [Dual Arms](#dual-arms)
-  - [Drones](#drones)
-  - [End-effectors](#end-effectors)
-  - [Mobile Manipulators](#mobile-manipulators)
-  - [Humanoids](#humanoids)
-  - [Quadrupeds](#quadrupeds)
-  - [Biomechanical](#biomechanical)
-  - [Miscellaneous](#miscellaneous)
-- [Gallery](#gallery)
 - [Citing Menagerie](#citing-menagerie)
 - [Acknowledgments](#acknowledgments)
 - [License and Disclaimer](#license-and-disclaimer)
@@ -155,7 +153,7 @@ Menagerie, see [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Menagerie Models
 
-### Arms
+**Arms.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
@@ -169,26 +167,26 @@ Menagerie, see [CONTRIBUTING](CONTRIBUTING.md).
 | ViperX 300 | Trossen Robotics | 8 | [BSD-3-Clause](trossen_vx300s/LICENSE) |✖️|
 | xarm7 | UFACTORY | 7 | [BSD-3-Clause](ufactory_xarm7/LICENSE) |✖️|
 
-### Bipeds
+**Bipeds.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
 | Cassie | Agility Robotics | 28 | [BSD-3-Clause](agility_cassie/LICENSE) |✖️|
 
-### Dual Arms
+**Dual Arms.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
 | ALOHA 2 | Trossen Robotics, Google DeepMind | 16 | [BSD-3-Clause](aloha/LICENSE) |✔️|
 
-### Drones
+**Drones.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
 | Crazyflie 2 | Bitcraze | 0 | [MIT](bitcraze_crazyflie_2/LICENSE) |✖️|
 | Skydio X2 | Skydio | 0 | [Apache-2.0](skydio_x2/LICENSE) |✖️|
 
-### End-effectors
+**End-effectors.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
@@ -196,14 +194,14 @@ Menagerie, see [CONTRIBUTING](CONTRIBUTING.md).
 | Robotiq 2F-85 | Robotiq | 8 | [BSD-2-Clause](robotiq_2f85/LICENSE) |✖️|
 | Shadow Hand EM35 | Shadow Robot Company | 24 | [Apache-2.0](shadow_hand/LICENSE) |✖️|
 
-### Mobile Manipulators
+**Mobile Manipulators.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
 | Google Robot | Google DeepMind | 9 | [Apache-2.0](google_robot/LICENSE) |✖️|
 | Stretch 2 | Hello Robot | 17 | [Clear BSD](hello_robot_stretch/LICENSE) |✖️|
 
-### Humanoids
+**Humanoids.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
@@ -211,7 +209,7 @@ Menagerie, see [CONTRIBUTING](CONTRIBUTING.md).
 | Unitree G1 | Unitree Robotics | 37 | [BSD-3-Clause](unitree_g1/LICENSE) |✖️|
 | Unitree H1 | Unitree Robotics | 19 | [BSD-3-Clause](unitree_h1/LICENSE) |✖️|
 
-### Quadrupeds
+**Quadrupeds.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
@@ -223,28 +221,17 @@ Menagerie, see [CONTRIBUTING](CONTRIBUTING.md).
 | Google Barkour v0 | Google DeepMind | 12 | [Apache-2.0](google_barkour_v0/LICENSE) |✔️|
 | Google Barkour vB | Google DeepMind | 12 | [Apache-2.0](google_barkour_vb/LICENSE) |✔️|
 
-### Biomechanical
+**Biomechanical.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
 | flybody | Google DeepMind, HHMI Janelia Research Campus | 102 | [Apache-2.0](flybody/LICENSE) |✖️|
 
-### Miscellaneous
+**Miscellaneous.**
 
 | Name | Maker | DoFs    | License | MJX |
 |------|-------|---------|---------|-----|
 | D435i | Intel Realsense | 0 | [Apache-2.0](realsense_d435i/LICENSE) |✖️|
-
-## Gallery
-
-|<img src='gallery/franka_emika_panda-panda.png' width=100>|<img src='gallery/kuka_iiwa_14-iiwa14.png' width=100>|<img src='gallery/rethink_robotics_sawyer-sawyer.png' width=100>|<img src='gallery/trossen_vx300s-vx300s.png' width=100>|<img src='gallery/ufactory_lite6-lite6.png' width=100>|
-| :---: | :---: | :---: | :---: | :---: |
-|<img src='gallery/ufactory_xarm7-xarm7.png' width=100>|<img src='gallery/unitree_z1-z1.png' width=100>|<img src='gallery/universal_robots_ur10e-ur10e.png' width=100>|<img src='gallery/universal_robots_ur5e-ur5e.png' width=100>|<img src='gallery/aloha-aloha.png' width=100>|
-|<img src='gallery/franka_emika_panda-hand.png' width=100>|<img src='gallery/robotiq_2f85-2f85.png' width=100>|<img src='gallery/shadow_hand-left_hand.png' width=100>|<img src='gallery/shadow_hand-right_hand.png' width=100>|<img src='gallery/ufactory_xarm7-hand.png' width=100>|
-|<img src='gallery/wonik_allegro-left_hand.png' width=100>|<img src='gallery/wonik_allegro-right_hand.png' width=100>|<img src='gallery/google_robot-robot.png' width=100>|<img src='gallery/hello_robot_stretch-stretch.png' width=100>|<img src='gallery/anybotics_anymal_b-anymal_b.png' width=100>|
-|<img src='gallery/anybotics_anymal_c-anymal_c.png' width=100>|<img src='gallery/google_barkour_v0-barkour_v0.png' width=100>|<img src='gallery/google_barkour_vb-barkour_vb.png' width=100>|<img src='gallery/unitree_a1-a1.png' width=100>|<img src='gallery/unitree_go1-go1.png' width=100>|
-|<img src='gallery/unitree_go2-go2.png' width=100>|<img src='gallery/agility_cassie-cassie.png' width=100>|<img src='gallery/robotis_op3-op3.png' width=100>|<img src='gallery/unitree_g1-g1.png' width=100>|<img src='gallery/unitree_h1-h1.png' width=100>|
-|<img src='gallery/bitcraze_crazyflie_2-cf2.png' width=100>|<img src='gallery/skydio_x2-x2.png' width=100>|<img src='gallery/flybody-fruitfly.png' width=100>|<img src='gallery/realsense_d435i-d435i.png' width=100>||
 
 ## Citing Menagerie
 

@@ -98,7 +98,7 @@
     <camera name="teleoperator_pov" pos="0 -1.354 0.685" xyaxes="1 0 0 0 0.2 .8"/>
     <camera name="collaborator_pov" pos="0 1.5 0.8" xyaxes="-1 0 0 0 -0.2 .8"/>
 
-    <body name="left/base_link" childclass="vx300s" pos="-0.469 -0.019 0.02">
+    <body name="left/base_link" childclass="vx300s" pos="-0.3 -0.019 0.02">
       <inertial pos="-0.0534774 -0.000562575 0.0205961" quat="-0.00292324 0.712517 0.00480387 0.701633" mass="0.969034"
         diaginertia="0.0071633 0.00602451 0.00169819"/>
       <geom quat="1 0 0 1" class="visual" mesh="vx300s_1_base"/>
@@ -185,7 +185,7 @@
       </body>
     </body>
 
-    <body name="right/base_link" childclass="vx300s" pos="0.469 -0.019 0.02" quat="0 0 0 1">
+    <body name="right/base_link" childclass="vx300s" pos="0.3 -0.019 0.02" quat="0 0 0 1">
       <inertial pos="-0.0534774 -0.000562575 0.0205961" quat="-0.00292324 0.712517 0.00480387 0.701633" mass="0.969034"
         diaginertia="0.0071633 0.00602451 0.00169819"/>
       <geom quat="1 0 0 1" class="visual" mesh="vx300s_1_base"/>
@@ -284,4 +284,8 @@
   </equality>
 
   <include file="joint_position_actuators.xml"/>
+
+  <keyframe>
+    <key qpos='0.43988 -0.206468 1.08253 -0.443382 -1.084 -0.00397598 0.0084 0.00846495 -1.28822 -0.360594 0.717978 -0.000325086 -0.273415 6.76003e-05 0.0084 0.00839987'/>
+  </keyframe>
 </mujoco>

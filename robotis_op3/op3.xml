@@ -72,7 +72,8 @@
   </default>
 
   <worldbody>
-    <light name="spotlight" mode="targetbodycom" target="body_link" pos="0 -1 2"/>
+    <!-- <light mode="targetbodycom" target="body_link" pos="1 0 1"/> -->
+    <light mode="targetbodycom" target="body_link" pos="4 0 1"/>
     <body name="body_link" pos="0 0 0.3">
       <inertial pos="-0.01501 0.00013 0.06582" quat="0.704708 0.704003 0.0667707 -0.0575246" mass="1.34928"
         diaginertia="0.00341264 0.00316574 0.00296931"/>
@@ -260,4 +261,8 @@
     <position name="r_ank_pitch_act" joint="r_ank_pitch"/>
     <position name="r_ank_roll_act" joint="r_ank_roll"/>
   </actuator>
+
+  <keyframe>
+    <key name="stand" qpos="0 0 0.2789 1 0 0 0 0.0 0.0 -0.0890 0.7931 -0.79 0.0874 -0.7946 0.7855 -0.0015 -0.0460 -0.1626 0.2316 0.1565 -0.0230 0.0 0.0445 0.1611 -0.2332 -0.1580 0.0215"/>
+  </keyframe>
 </mujoco>
