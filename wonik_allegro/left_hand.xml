@@ -124,7 +124,7 @@
   </asset>
 
   <worldbody>
-    <light name="spotlight" mode="targetbodycom" target="palm" pos="0 -1 2"/>
+    <!-- <light name="spotlight" mode="targetbodycom" target="palm" pos="0 -1 2"/> -->
     <body name="palm" quat="0 1 0 1" childclass="allegro_left">
       <geom quat="1 -1 0 0" class="palm_visual" mesh="base_link_left"/>
       <geom class="palm_collision"/>
