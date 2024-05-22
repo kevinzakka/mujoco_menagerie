@@ -75,7 +75,7 @@
 
   <asset>
     <material name="black" specular="0.5" shininess="0.25" rgba="0.16355 0.16355 0.16355 1"/>
-    <material name="gray" specular="0.0" shininess="0.25" rgba="0.80848 0.80848 0.80848 1"/>
+    <material name="gray" specular="0.0" shininess="0.25" rgba="0.70848 0.70848 0.70848 1"/>
     <material name="metallic" specular="0" shininess="0.25" rgba="0.9 0.9 0.9 1"/>
 
     <mesh class="right_hand" file="forearm_0.obj"/>
@@ -94,7 +94,7 @@
   </asset>
 
   <worldbody>
-    <light name="spotlight" mode="targetbodycom" target="rh_palm" pos="0 -1 2"/>
+    <light name="spotlight" mode="targetbodycom" target="rh_palm" pos="0 -1 1"/>
     <body name="rh_forearm" childclass="right_hand" quat="0 1 0 1">
       <inertial mass="3" pos="0 0 0.09" diaginertia="0.0138 0.0138 0.00744"/>
       <geom class="plastic_visual" mesh="forearm_0" material="gray"/>

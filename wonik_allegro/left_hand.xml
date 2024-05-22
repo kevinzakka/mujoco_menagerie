@@ -108,7 +108,7 @@
 
   <asset>
     <material name="black" rgba="0.2 0.2 0.2 1"/>
-    <material name="white" rgba="0.9 0.9 0.9 1"/>
+    <material name="white" rgba="0.7 0.7 0.7 1"/>
 
     <mesh file="base_link_left.stl"/>
     <mesh file="link_0.0.stl"/>
