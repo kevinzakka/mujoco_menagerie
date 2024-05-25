@@ -114,7 +114,9 @@ CAMERA_MAP = {
         pos="0.002 0.043 0.432", xyaxes="0.052 -0.999 0.000 0.998 0.052 0.017"
     ),
     "ufactory_xarm7/xarm7": dict(
-        pos="0.852 -0.383 0.860", xyaxes="0.487 0.874 0.000 -0.354 0.197 0.914", fovy=DEFAULT_FOV
+        pos="0.852 -0.383 0.860",
+        xyaxes="0.487 0.874 0.000 -0.354 0.197 0.914",
+        fovy=DEFAULT_FOV,
     ),
     "ufactory_xarm7/hand": dict(
         pos="-0.282 0.013 0.118",
@@ -175,10 +177,14 @@ CAMERA_MAP = {
         fovy=DEFAULT_FOV,
     ),
     "unitree_z1/z1": dict(
-        pos="0.305 -0.400 0.552", xyaxes="0.755 0.656 0.000 -0.359 0.413 0.837", fovy=DEFAULT_FOV
+        pos="0.305 -0.400 0.552",
+        xyaxes="0.755 0.656 0.000 -0.359 0.413 0.837",
+        fovy=DEFAULT_FOV,
     ),
     "unitree_go2/go2": dict(
-        pos="0.753 -0.427 0.433", xyaxes="0.518 0.856 0.000 -0.284 0.172 0.943", fovy=DEFAULT_FOV
+        pos="0.753 -0.427 0.433",
+        xyaxes="0.518 0.856 0.000 -0.284 0.172 0.943",
+        fovy=DEFAULT_FOV,
     ),
     "unitree_go1/go1": dict(
         pos="0.679 -0.553 0.530",
@@ -231,10 +237,14 @@ CAMERA_MAP = {
         fovy=DEFAULT_FOV,
     ),
     "bitcraze_crazyflie_2/cf2": dict(
-        pos="0.037 -0.142 0.206", xyaxes="0.963 0.268 0.000 -0.167 0.599 0.783", fovy=DEFAULT_FOV
+        pos="0.037 -0.142 0.206",
+        xyaxes="0.963 0.268 0.000 -0.167 0.599 0.783",
+        fovy=DEFAULT_FOV,
     ),
     "anybotics_anymal_b/anymal_b": dict(
-        pos="0.930 -1.239 1.221", xyaxes="0.809 0.587 0.000 -0.308 0.424 0.852", fovy=DEFAULT_FOV
+        pos="0.930 -1.239 1.221",
+        xyaxes="0.809 0.587 0.000 -0.308 0.424 0.852",
+        fovy=DEFAULT_FOV,
     ),
     "anybotics_anymal_c/anymal_c": dict(
         pos="1.547 -0.577 0.941",
@@ -247,7 +257,9 @@ CAMERA_MAP = {
         fovy=DEFAULT_FOV,
     ),
     "agility_cassie/cassie": dict(
-        pos="1.277 -1.122 1.053", xyaxes="0.655 0.756 0.000 -0.196 0.170 0.966", fovy=DEFAULT_FOV
+        pos="1.277 -1.122 1.053",
+        xyaxes="0.655 0.756 0.000 -0.196 0.170 0.966",
+        fovy=DEFAULT_FOV,
     ),
 }
 
@@ -309,6 +321,7 @@ def sort_func(xml):
 MODEL_XMLS = sorted(MODEL_XMLS, key=sort_func)
 
 paths = []
+pngs = []
 for xml in tqdm(MODEL_XMLS):
     try:
         robot_maker = xml.parent.stem
@@ -366,10 +379,22 @@ for xml in tqdm(MODEL_XMLS):
         u, v = np.where(np.any(img != 255, axis=-1))
         png[u, v, :3] = img[u, v]
         png[u, v, -1] = 255
+        pngs.append(png.copy())
         Image.fromarray(png).save(filename)
     except Exception as e:
         print(e)
         print(f"failed to load {xml.as_posix()}")
+
+
+N_MODELS = len(paths)
+N = int(np.ceil(np.sqrt(N_MODELS)))
+grid = np.zeros((N * 500, N * 500, 4), dtype=np.uint8)
+for r in range(N):
+    for c in range(N):
+        i = r * N + c
+        if i < N_MODELS:
+            grid[r * 500 : (r + 1) * 500, c * 500 : (c + 1) * 500] = pngs[i]
+Image.fromarray(grid).save("grid.png")
 
 
 # Create markdown table.
