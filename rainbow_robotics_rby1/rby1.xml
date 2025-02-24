@@ -1,0 +1,337 @@
+<mujoco model="rby1">
+  <compiler angle="radian" autolimits="true" eulerseq="xyz"/>
+
+  <option integrator="implicitfast"/>
+
+  <default>
+    <default class="rby1">
+      <joint range="-3.14 3.14" frictionloss=".1" armature=".005"/>
+      <default class="wheel">
+        <joint damping="30" frictionloss="1" armature="0.1" stiffness="0.02" limited="false"/>
+        <velocity gear="3" kv="100" ctrlrange="-3.14 3.14" forcerange="-100 100"/>
+      </default>
+      <default class="actuators">
+        <position kp="8000" dampratio="1" inheritrange="1"/>
+      </default>
+      <default class="finger">
+        <motor ctrlrange="-1 1" gear="100"/>
+      </default>
+      <default class="visual">
+        <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+      </default>
+      <default class="collision">
+        <geom group="3" type="mesh" contype="1" conaffinity="0"/>
+      </default>
+      <default class="in-model-collision">
+        <geom group="4" contype="0" conaffinity="0" rgba="0.3 0 0 1.0 "/>
+      </default>
+    </default>
+  </default>
+
+  <asset>
+    <include file="assets/materials.xml"/>
+
+    <model name="base" file="assets/base/base.xml"/>
+    <model name="wheel" file="assets/WHEEL/WHEEL.xml"/>
+    <model name="ee_body" file="assets/EE_BODY/EE_BODY.xml"/>
+    <model name="ee_finger" file="assets/EE_FINGER/EE_FINGER.xml"/>
+    <model name="ft_sensor_l" file="assets/FT_SENSOR_L/FT_SENSOR_L.xml"/>
+    <model name="ft_sensor_r" file="assets/FT_SENSOR_R/FT_SENSOR_R.xml"/>
+    <model name="link_1" file="assets/LINK_1/LINK_1.xml"/>
+    <model name="link_2" file="assets/LINK_2/LINK_2.xml"/>
+    <model name="link_3" file="assets/LINK_3/LINK_3.xml"/>
+    <model name="link_4" file="assets/LINK_4/LINK_4.xml"/>
+    <model name="link_5" file="assets/LINK_5/LINK_5.xml"/>
+    <model name="link_6" file="assets/LINK_6/LINK_6.xml"/>
+    <model name="link_7" file="assets/LINK_7/LINK_7.xml"/>
+    <model name="link_8" file="assets/LINK_8/LINK_8.xml"/>
+    <model name="link_9" file="assets/LINK_9/LINK_9.xml"/>
+    <model name="link_10" file="assets/LINK_10/LINK_10.xml"/>
+    <model name="link_11" file="assets/LINK_11/LINK_11.xml"/>
+    <model name="link_12" file="assets/LINK_12/LINK_12.xml"/>
+    <model name="link_13" file="assets/LINK_13/LINK_13.xml"/>
+    <model name="link_14" file="assets/LINK_14/LINK_14.xml"/>
+    <model name="link_15" file="assets/LINK_15/LINK_15.xml"/>
+    <model name="link_16" file="assets/LINK_16/LINK_16.xml"/>
+    <model name="link_17" file="assets/LINK_17/LINK_17.xml"/>
+    <model name="link_18" file="assets/LINK_18/LINK_18.xml"/>
+    <model name="link_19" file="assets/LINK_19/LINK_19.xml"/>
+    <model name="link_20" file="assets/LINK_20/LINK_20.xml"/>
+    <model name="pan_tilt_1" file="assets/PAN_TILT_1/PAN_TILT_1.xml"/>
+    <model name="pan_tilt_2" file="assets/PAN_TILT_2/PAN_TILT_2.xml"/>
+    <model name="pan_tilt_3" file="assets/PAN_TILT_3/PAN_TILT_3.xml"/>
+  </asset>
+
+  <worldbody>
+    <body name="base" childclass="rby1">
+      <inertial pos="-0.0615794 -0.00142271 0.135139" quat="0.00383057 0.733861 -0.00742942 0.679248" mass="60.0804"
+        diaginertia="3.77525 2.99424 1.36264"/>
+      <freejoint name="world_j"/>
+      <attach model="base" body="base" prefix="base/"/>
+      <body name="wheel_r" pos="0.228 -0.265 0.1">
+        <inertial pos="0 -0.00073938 0" quat="0.707107 0 0 0.707107" mass="1.37784"
+          diaginertia="0.00811815 0.00426657 0.00426657"/>
+        <joint class="wheel" name="right_wheel" axis="0 -1 0"/>
+        <attach model="wheel" body="WHEEL" prefix="right_wheel"/>
+      </body>
+      <body name="wheel_l" pos="0.228 0.265 0.1">
+        <inertial pos="0 0.00073938 0" quat="0.707107 0 0 0.707107" mass="1.37784"
+          diaginertia="0.00811815 0.00426657 0.00426657"/>
+        <joint class="wheel" name="left_wheel" axis="0 -1 0"/>
+        <attach model="wheel" body="WHEEL" prefix="left_wheel"/>
+      </body>
+      <body name="link_torso_0" pos="0 0 0.2805">
+        <inertial pos="-0.0884841 0.00021367 4.6e-07" quat="0.443798 0.550483 -0.443815 0.55049" mass="2.24282"
+          diaginertia="0.0189253 0.0143368 0.00985172"/>
+        <joint name="torso_0" pos="0 0 0" axis="1 0 0" limited="true" range="-0.261799388 0.261799388"/>
+        <attach model="link_1" body="LINK_1" prefix="link_1"/>
+        <geom size="0.105 0.115" pos="-0.115 0 0" quat="0.707105 0 0.707108 0" class="in-model-collision"/>
+        <body name="link_torso_1">
+          <inertial pos="0.00728955 -0.0172852 0.0691138" quat="0.997768 -0.0453891 0.0382115 -0.0306483" mass="9.72163"
+            diaginertia="0.149421 0.139376 0.0275059"/>
+          <joint name="torso_1" pos="0 0 0" axis="0 1 0" limited="true" range="-0.523598776 1.570796327"/>
+          <attach model="link_2" body="LINK_2" prefix="link_2"/>
+          <geom size="0.115 0.11" pos="0.01 0 0.24" class="in-model-collision"/>
+          <body name="link_torso_2" pos="0 0 0.35">
+            <inertial pos="0.00653835 -0.0176954 0.0563658" quat="0.99687 -0.052526 0.0433482 -0.0401474" mass="9.21692"
+              diaginertia="0.12242 0.116748 0.0292915"/>
+            <joint name="torso_2" pos="0 0 0" axis="0 1 0" limited="true" range="-2.617993878 1.570796327"/>
+            <attach model="link_3" body="LINK_3" prefix="link_3"/>
+            <geom size="0.095 0.08" pos="0.025 0 0.23" class="in-model-collision"/>
+            <body name="link_torso_3" pos="0 0 0.35">
+              <inertial pos="-0.00574156 -0.0172598 5.61e-05" quat="0.0913806 0.682262 -0.18841 0.700478" mass="4.18679"
+                diaginertia="0.00955618 0.00946572 0.00832635"/>
+              <joint name="torso_3" pos="0 0 0" axis="0 1 0" limited="true" range="-0.785398163 1.570796327"/>
+              <attach model="link_4" body="LINK_4" prefix="link_4"/>
+              <body name="link_torso_4">
+                <inertial pos="-0.0909709 5.085e-05 0.0260195" quat="-0.0536434 0.4399 -0.0270045 0.896036"
+                  mass="4.45566" diaginertia="0.0255574 0.0255082 0.00942882"/>
+                <joint name="torso_4" pos="0 0 0" axis="1 0 0" limited="true" range="-0.523598776 0.523598776"/>
+                <attach model="link_5" body="LINK_5" prefix="link_5"/>
+                <geom size="0.105 0.1" pos="-0.07 0 0.0385" quat="0.707105 0 0.707108 0" class="in-model-collision"/>
+                <body name="link_torso_5" pos="0 0 0.309427">
+                  <inertial pos="-0.0132199 0.000254676 -0.0318761" quat="0.998675 -0.00438307 -0.0510462 0.00477378"
+                    mass="12.6659" diaginertia="0.21618 0.167212 0.132309"/>
+                  <joint name="torso_5" pos="0 0 0" axis="0 0 1" limited="true" range="-2.35619449 2.35619449"/>
+                  <attach model="link_6" body="LINK_6" prefix="link_6"/>
+                  <geom size="0.155 0.0675" pos="0 0 0.0075" class="in-model-collision"/>
+                  <attach model="pan_tilt_1" body="PAN_TILT_1" prefix="pan_tilt_1"/>
+                  <body name="link_right_arm_0" pos="0 -0.22 0.0800735" quat="0.984808 -0.173648 0 0">
+                    <inertial pos="-0.00316662 0.0343718 -3e-07" quat="0.536676 0.553304 0.439546 0.461122"
+                      mass="1.26164" diaginertia="0.00433912 0.00432154 0.00223129"/>
+                    <joint name="right_arm_0" pos="0 0 0" axis="0 1 0" limited="true" range="-3.141592654 3.141592654"/>
+                    <attach model="link_7" body="LINK_7" prefix="link_7"/>
+                    <geom size="0.075 0.035" pos="-0.015 0.018 -0.008" quat="0.707105 0 0.707108 0"
+                      class="in-model-collision"/>
+                    <body name="link_right_arm_1" quat="0.984808 0.173648 0 0">
+                      <inertial pos="-0.00307855 -0.00124741 -0.0129432" quat="0.691024 -0.061096 -0.016345 0.72006"
+                        mass="2.27287" diaginertia="0.00447747 0.0038967 0.00286448"/>
+                      <joint name="right_arm_1" pos="0 0 0" axis="1 0 0" limited="true" range="-3.141592654 0.017453293"/>
+                      <attach model="link_8" body="LINK_8" prefix="link_8"/>
+                      <geom size="0.05 0.1" pos="0 0 -0.1" class="in-model-collision"/>
+                      <body name="link_right_arm_2">
+                        <inertial pos="0.00115434 -0.00196635 -0.161925" quat="0.998316 -0.0390505 -0.0388849 0.0181103"
+                          mass="2.46909" diaginertia="0.0098447 0.00928024 0.00322202"/>
+                        <joint name="right_arm_2" pos="0 0 0" axis="0 0 1" limited="true"
+                          range="-3.141592654 3.141592654"/>
+                        <attach model="link_9" body="LINK_9" prefix="link_9"/>
+                        <geom size="0.05 0.04" pos="0.026 0 -0.276" quat="0.707105 0.707108 0 0"
+                          class="in-model-collision"/>
+                        <body name="link_right_arm_3" pos="0.031 0 -0.276">
+                          <inertial pos="-0.0160313 -0.00692891 -0.0454981" quat="0.950945 0.0932571 0.100342 0.277377"
+                            mass="2.26099" diaginertia="0.0086724 0.00849326 0.00187523"/>
+                          <joint name="right_arm_3" pos="0 0 0" axis="0 1 0" limited="true"
+                            range="-2.617993878 0.017453293"/>
+                          <attach model="link_10" body="LINK_10" prefix="link_10"/>
+                          <geom size="0.04 0.0575" pos="-0.031 0 -0.1075" class="in-model-collision"/>
+                          <body name="link_right_arm_4" pos="-0.031 0 -0.256">
+                            <inertial pos="-1.1e-07 -0.0269604 0.0618211" quat="0.686909 -0.167796 0.167796 0.686909"
+                              mass="0.425087" diaginertia="0.000885625 0.00082466 0.000266295"/>
+                            <joint name="right_arm_4" pos="0 0 0" axis="0 0 1" limited="true"
+                              range="-3.141592654 3.141592654"/>
+                            <attach model="link_11" body="LINK_11" prefix="link_11"/>
+                            <geom size="0.035 0.0475" pos="0 -0.038 0.0175" class="in-model-collision"/>
+                            <body name="link_right_arm_5">
+                              <inertial pos="0.00318034 -0.00532264 -0.0280966"
+                                quat="0.559407 0.0608226 -0.0803636 0.822743" mass="1.59194"
+                                diaginertia="0.00262685 0.00255036 0.00151658"/>
+                              <joint name="right_arm_5" pos="0 0 0" axis="0 1 0" limited="true"
+                                range="-1.570796327 1.919862177"/>
+                              <attach model="link_12" body="LINK_12" prefix="link_12"/>
+                              <geom size="0.075 0.026" pos="0 0 -0.024" class="in-model-collision"/>
+                              <body name="link_right_arm_6">
+                                <inertial pos="0.00101419 0.000398553 -0.149904"
+                                  quat="0.730015 -0.0098152 -0.00428736 0.683347" mass="1.16921"
+                                  diaginertia="0.00296506 0.00265919 0.00114611"/>
+                                <joint name="right_arm_6" pos="0 0 0" axis="0 0 1" limited="true"
+                                  range="-2.792526803 2.792526803"/>
+                                <attach model="link_13" body="LINK_13" prefix="link_13"/>
+                                <body name="FT_SENSOR_R" pos="0 0 -0.1087">
+                                  <inertial pos="0 0 0" mass="0"/>
+                                  <attach model="ft_sensor_r" body="FT_SENSOR_R" prefix="ft_sensor_r"/>
+                                </body>
+                                <body name="EE_BODY_R" pos="0 0 -0.1548">
+                                  <inertial pos="0 0 0" mass="0"/>
+                                  <attach model="ee_body" body="EE_BODY" prefix="ee_body_r"/>
+                                </body>
+                                <body name="ee_finger_r1" pos="0.003 0 -0.2278">
+                                  <inertial pos="0.00278346 -3.29e-06 -0.0257011" quat="0.999784 0 0.0208044 0"
+                                    mass="0.03327" diaginertia="1.23275e-05 1.066e-05 2.22251e-06"/>
+                                  <joint name="gripper_finger_r1" pos="0 0 0" axis="-1 0 0" type="slide" limited="true"
+                                    range="-0.05 0"/>
+                                  <attach model="ee_finger" body="EE_FINGER" prefix="ee_finger_r1"/>
+                                </body>
+                                <body name="ee_finger_r2" pos="-0.003 0 -0.2278" quat="4.48966e-11 0 0 1">
+                                  <inertial pos="0.00278346 -3.29e-06 -0.0257011" quat="0.999784 0 0.0208044 0"
+                                    mass="0.03327" diaginertia="1.23275e-05 1.066e-05 2.22251e-06"/>
+                                  <joint name="gripper_finger_r2" pos="0 0 0" axis="1 0 0" type="slide" limited="true"
+                                    range="0 0.05"/>
+                                  <attach model="ee_finger" body="EE_FINGER" prefix="ee_finger_r2"/>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                  <body name="link_left_arm_0" pos="0 0.22 0.0800735" quat="0.984808 0.173648 0 0">
+                    <inertial pos="-0.00316662 -0.0343715 2.42e-06" quat="0.441442 0.459281 0.538276 0.551768"
+                      mass="1.26164" diaginertia="0.0043391 0.00432158 0.00223133"/>
+                    <joint name="left_arm_0" pos="0 0 0" axis="0 1 0" limited="true" range="-3.141592654 3.141592654"/>
+                    <attach model="link_14" body="LINK_14" prefix="link_14"/>
+                    <geom size="0.075 0.035" pos="-0.015 -0.018 -0.008" quat="0.707105 0 0.707108 0"
+                      class="in-model-collision"/>
+                    <body name="link_left_arm_1" quat="0.984808 -0.173648 0 0">
+                      <inertial pos="-0.0018347 0.00040596 -0.0100873" quat="0.701113 -0.0246572 -0.049881 0.710875"
+                        mass="1.88139" diaginertia="0.00355382 0.00296561 0.0022966"/>
+                      <joint name="left_arm_1" pos="0 0 0" axis="1 0 0" limited="true" range="-0.017453293 3.141592654"/>
+                      <attach model="link_15" body="LINK_15" prefix="link_15"/>
+                      <geom size="0.05 0.1" pos="0 0 -0.1" class="in-model-collision"/>
+                      <body name="link_left_arm_2">
+                        <inertial pos="0.00066086 -0.00038583 -0.15743"
+                          quat="0.999413 -0.00635373 -0.0335732 -0.00246859" mass="2.35634"
+                          diaginertia="0.00845197 0.00802394 0.00293109"/>
+                        <joint name="left_arm_2" pos="0 0 0" axis="0 0 1" limited="true"
+                          range="-3.141592654 3.141592654"/>
+                        <attach model="link_16" body="LINK_16" prefix="link_16"/>
+                        <geom size="0.05 0.04" pos="0.026 0 -0.276" quat="0.707105 0.707108 0 0"
+                          class="in-model-collision"/>
+                        <body name="link_left_arm_3" pos="0.031 0 -0.276">
+                          <inertial pos="-0.015653 0.00793126 -0.0499794" quat="0.977098 -0.0897025 0.113811 -0.15582"
+                            mass="2.00906" diaginertia="0.00798526 0.00783637 0.00146823"/>
+                          <joint name="left_arm_3" pos="0 0 0" axis="0 1 0" limited="true"
+                            range="-2.617993878 0.017453293"/>
+                          <attach model="link_17" body="LINK_17" prefix="link_17"/>
+                          <geom size="0.04 0.0575" pos="-0.031 0 -0.1075" class="in-model-collision"/>
+                          <body name="link_left_arm_4" pos="-0.031 0 -0.256">
+                            <inertial pos="1.1e-07 0.0269604 0.0618211" quat="0.686909 0.167796 -0.167796 0.686909"
+                              mass="0.425087" diaginertia="0.000885625 0.00082466 0.000266295"/>
+                            <joint name="left_arm_4" pos="0 0 0" axis="0 0 1" limited="true"
+                              range="-3.141592654 3.141592654"/>
+                            <attach model="link_18" body="LINK_18" prefix="link_18"/>
+                            <geom size="0.035 0.0475" pos="0 0.038 0.0175" class="in-model-collision"/>
+                            <body name="link_left_arm_5">
+                              <inertial pos="0.00340082 0.00576824 -0.0250731"
+                                quat="0.874666 -0.0845974 0.0492323 0.474742" mass="1.44265"
+                                diaginertia="0.00238544 0.00231489 0.00134498"/>
+                              <joint name="left_arm_5" pos="0 0 0" axis="0 1 0" limited="true"
+                                range="-1.570796327 1.919862177"/>
+                              <attach model="link_19" body="LINK_19" prefix="link_19"/>
+                              <geom size="0.075 0.026" pos="0 0 -0.024" class="in-model-collision"/>
+                              <body name="link_left_arm_6">
+                                <inertial pos="-0.00092669 0.000508285 -0.149904"
+                                  quat="0.72966 0.00249295 0.012223 0.683697" mass="1.16921"
+                                  diaginertia="0.00296541 0.00265922 0.00114589"/>
+                                <joint name="left_arm_6" pos="0 0 0" axis="0 0 1" limited="true"
+                                  range="-2.792526803 2.792526803"/>
+                                <attach model="link_20" body="LINK_20" prefix="link_20"/>
+                                <body name="FT_SENSOR_L" pos="0 0 -0.1087">
+                                  <inertial pos="0 0 0" mass="0"/>
+                                  <attach model="ft_sensor_l" body="FT_SENSOR_L" prefix="ft_sensor_l"/>
+                                </body>
+                                <body name="EE_BODY_L" pos="0 0 -0.1548">
+                                  <inertial pos="0 0 0" mass="0"/>
+                                  <attach model="ee_body" body="EE_BODY" prefix="ee_body_l"/>
+                                </body>
+                                <body name="ee_finger_l1" pos="-0.003 0 -0.2278" quat="4.48966e-11 0 0 1">
+                                  <inertial pos="0.00278346 -3.29e-06 -0.0257011" quat="0.999784 0 0.0208044 0"
+                                    mass="0.03327" diaginertia="1.23275e-05 1.066e-05 2.22251e-06"/>
+                                  <joint name="gripper_finger_l1" pos="0 0 0" axis="-1 0 0" type="slide" limited="true"
+                                    range="-0.05 0"/>
+                                  <attach model="ee_finger" body="EE_FINGER" prefix="ee_finger_l1"/>
+                                </body>
+                                <body name="ee_finger_l2" pos="0.003 0 -0.2278" quat="-1 0 0 8.97932e-11">
+                                  <inertial pos="0.00278346 -3.29e-06 -0.0257011" quat="0.999784 0 0.0208044 0"
+                                    mass="0.03327" diaginertia="1.23275e-05 1.066e-05 2.22251e-06"/>
+                                  <joint name="gripper_finger_l2" pos="0 0 0" axis="1 0 0" type="slide" limited="true"
+                                    range="0 0.05"/>
+                                  <attach model="ee_finger" body="EE_FINGER" prefix="ee_finger_l2"/>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                  <body name="link_head_1" pos="0.022 0 0.140073">
+                    <inertial pos="-0.0115068 -0.0011427 -0.00031579" quat="0.354317 0.578329 0.650884 0.341093"
+                      mass="0.0745058" diaginertia="2.45449e-05 2.18237e-05 1.72614e-05"/>
+                    <joint name="head_0" pos="0 0 0" axis="0 0 1" limited="true" range="-0.523 0.523"/>
+                    <attach model="pan_tilt_2" body="PAN_TILT_2" prefix="pan_tilt_2"/>
+                    <body name="link_head_2">
+                      <inertial pos="-0.00081966 0.00099024 0.022837" quat="0.797736 0.60274 0.0137914 -0.0114992"
+                        mass="0.0358537" diaginertia="2.04697e-05 1.31161e-05 1.02242e-05"/>
+                      <joint name="head_1" pos="0 0 0" axis="0 1 0" limited="true" range="-0.35 1.57"/>
+                      <attach model="pan_tilt_3" body="PAN_TILT_3" prefix="pan_tilt_3"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <equality>
+    <joint name="right_finger" joint1="gripper_finger_r1" joint2="gripper_finger_r2" polycoef="0 -1 0 0 0"/>
+    <joint name="left_finger" joint1="gripper_finger_l1" joint2="gripper_finger_l2" polycoef="0 -1 0 0 0"/>
+  </equality>
+
+  <actuator>
+    <velocity class="wheel" name="left_wheel_act" joint="left_wheel" ctrlrange="-3.14 3.14"/>
+    <velocity class="wheel" name="right_wheel_act" joint="right_wheel" ctrlrange="-3.14 3.14"/>
+
+    <position class="actuators" name="link1_act" joint="torso_0" forcerange="-270 270"/>
+    <position class="actuators" name="link2_act" joint="torso_1" forcerange="-270 270"/>
+    <position class="actuators" name="link3_act" joint="torso_2" forcerange="-270 270"/>
+    <position class="actuators" name="link4_act" joint="torso_3" forcerange="-120 120"/>
+    <position class="actuators" name="link5_act" joint="torso_4" forcerange="-120 120"/>
+    <position class="actuators" name="link6_act" joint="torso_5" forcerange="-120 120"/>
+
+    <position class="actuators" name="right_arm_1_act" joint="right_arm_0" forcerange="-70 70"/>
+    <position class="actuators" name="right_arm_2_act" joint="right_arm_1" forcerange="-70 70"/>
+    <position class="actuators" name="right_arm_3_act" joint="right_arm_2" forcerange="-70 70"/>
+    <position class="actuators" name="right_arm_4_act" joint="right_arm_3" forcerange="-40 40"/>
+    <position class="actuators" name="right_arm_5_act" joint="right_arm_4" forcerange="-10 10"/>
+    <position class="actuators" name="right_arm_6_act" joint="right_arm_5" forcerange="-10 10"/>
+    <position class="actuators" name="right_arm_7_act" joint="right_arm_6" forcerange="-8 8"/>
+
+    <position class="actuators" name="left_arm_1_act" joint="left_arm_0" forcerange="-70 70"/>
+    <position class="actuators" name="left_arm_2_act" joint="left_arm_1" forcerange="-70 70"/>
+    <position class="actuators" name="left_arm_3_act" joint="left_arm_2" forcerange="-70 70"/>
+    <position class="actuators" name="left_arm_4_act" joint="left_arm_3" forcerange="-40 40"/>
+    <position class="actuators" name="left_arm_5_act" joint="left_arm_4" forcerange="-10 10"/>
+    <position class="actuators" name="left_arm_6_act" joint="left_arm_5" forcerange="-10 10"/>
+    <position class="actuators" name="left_arm_7_act" joint="left_arm_6" forcerange="-8 8"/>
+
+    <position class="actuators" name="head_0_act" joint="head_0" forcerange="-1000 1000"/>
+    <position class="actuators" name="head_1_act" joint="head_1" forcerange="-1000 1000"/>
+
+    <motor class="finger" name="right_finger_act" joint="gripper_finger_r2"/>
+    <motor class="finger" name="left_finger_act" joint="gripper_finger_l1"/>
+  </actuator>
+</mujoco>
