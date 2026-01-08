@@ -12,7 +12,7 @@ See [CHANGELOG.md](./CHANGELOG.md) for a full history of changes.
 This package contains a simplified robot description (MJCF) of the [Trossen WXAI](https://www.trossenrobotics.com/viperx-300-robot-arm-6dof.aspx) developed by [Trossen Robotics](https://www.trossenrobotics.com/). It is derived from the [publicly available URDF description](https://docs.trossenrobotics.com/trossen_arm/main/tutorials/trossen_arm_mujoco.html).
 
 <p float="left">
-  <img src="vx300s.png" width="400">
+  <img src="trossen_wxai.png" width="400">
 </p>
 
 ## URDF → MJCF derivation steps
