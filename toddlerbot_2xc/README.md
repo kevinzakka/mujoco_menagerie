@@ -9,7 +9,7 @@ See [CHANGELOG.md](./CHANGELOG.md) for a full history of changes.
 
 ## Overview
 
-This package contains the MJCF of Stanford ToddlerBot (the 2XC variant). 
+This package contains the MJCF of Stanford ToddlerBot (the 2XC variant).
 
 <p float="left">
   <img src="toddlerbot_2xc.png" width="400">
